@@ -17,7 +17,34 @@ $ heroku buildpacks:set heroku/nodejs
 Next, add the Node Cleanup buildpack to get rid of the `node_modules` directory:
 
 ```bash
-$ heroku buildpacks:set --index 1 https://github.com/leoafarias/heroku-buildpack-node-modules-cleanup
+$ heroku buildpacks:set --index 1 https://github.com/RoleModel/heroku-buildpack-node-modules-cleanup
+```
+
+You can also simply add it to your `app.json` file, if you have one. E.g.:
+```json
+{
+  "name": "Multi-lang Masterpiece",
+  "scripts": {
+    "postdeploy": "bin/rails db:seed"
+  },
+  "buildpacks": [
+    {
+      "url": "heroku/metrics"
+    },
+    {
+      "url": "heroku/nodejs"
+    },
+    {
+      "url": "heroku/ruby"
+    },
+    {
+      "url": "heroku/python"
+    },
+    {
+      "url": "https://github.com/RoleModel/heroku-buildpack-node-modules-cleanup.git"
+    }
+  ]
+}
 ```
 
 ## Documentation
@@ -26,3 +53,4 @@ For more general information about buildpacks on Heroku:
 
 - [Using Multiple Buildpacks for an App](https://devcenter.heroku.com/articles/using-multiple-buildpacks-for-an-app)
 - [Slug Compiler](https://devcenter.heroku.com/articles/slug-compiler)
+- [`app.json`](https://devcenter.heroku.com/articles/app-json-schema)
