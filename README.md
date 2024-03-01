@@ -20,7 +20,7 @@ Next, add the Node Cleanup buildpack to get rid of the `node_modules` directory:
 $ heroku buildpacks:set --index 1 https://github.com/RoleModel/heroku-buildpack-node-modules-cleanup
 ```
 
-You can also simply add it to your `app.json` file, if you have one. E.g.:
+For review apps, also add it to your `app.json` file:
 ```json
 {
   "name": "Multi-lang Masterpiece",
