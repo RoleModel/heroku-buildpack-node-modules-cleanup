@@ -3,5 +3,6 @@
 
 BUILD_DIR=$1
 
-echo "-----> Deleting the node_modules directory"
-find $BUILD_DIR -name 'node_modules' -type d -prune -print -exec rm -rf '{}' \;
+echo "-----> Pruning the node_modules directory"
+# find $BUILD_DIR -name 'node_modules' -type d -prune -print -exec rm -rf '{}' \;
+yarn workspaces focus --production
